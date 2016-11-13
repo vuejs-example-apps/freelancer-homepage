@@ -1,5 +1,22 @@
 {
     "title": "Freelancer Homepage Vue.js Example",
+
+    "portfolio": {
+
+    },
+
+    "services": {
+
+    },
+
+    "texts": {
+
+    },
+
+    "contacts": {
+
+    },
+
     "author": {
         "name": "Grigoriy Beziuk",
         "hyperlink": "http://vk.com/gbezyuk"

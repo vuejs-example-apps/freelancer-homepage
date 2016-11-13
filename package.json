@@ -1,0 +1,27 @@
+{
+  "name": "freelancer-homepage",
+  "version": "0.1.0",
+  "description": "A typical freelancer's site with services description, portfolio, bio, contacts and order form.",
+  "main": "frontend/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuejs-example-apps/freelancer-homepage.git"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "freelancer",
+    "homepage",
+    "portfolio",
+    "example"
+  ],
+  "author": "Grigoriy Beziuk (http://vk.com/id85082)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vuejs-example-apps/freelancer-homepage/issues"
+  },
+  "homepage": "https://github.com/vuejs-example-apps/freelancer-homepage#readme"
+}
