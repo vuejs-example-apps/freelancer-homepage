@@ -1,6 +1,6 @@
 {
   "name": "freelancer-homepage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A typical freelancer's site with services description, portfolio, bio, contacts and order form.",
   "main": "frontend/index.html",
   "scripts": {

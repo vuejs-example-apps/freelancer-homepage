@@ -6,15 +6,264 @@
     },
 
     "services": {
+        "stages": {
+            "0": {
+                "caption": "",
+                "descripton": ""
+            },
+            "1": {
+                "caption": "",
+                "descripton": ""
+            },
+            "2": {
+                "caption": "",
+                "descripton": ""
+            },
+            "3": {
+                "caption": "",
+                "descripton": ""
+            },
+            "4": {
+                "caption": "",
+                "descripton": ""
+            },
+            "5": {
+                "caption": "",
+                "descripton": ""
+            }
+        },
+        "packages": {
+            "sketch": {
+                "contents": {
+                    "1": {
+                        "stage": ""
+                    },
+                    "2": {
+                        "stage": ""
+                    },
+                    "3": {
+                        "stage": ""
+                    }
+                },
+                "note": "",
+                "price_base": 950,
+                "price_discount": 750,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            },
+            "full": {
+                "contents": {
+                    "1": {
+                        "stage": ""
+                    },
+                    "2": {
+                        "stage": ""
+                    },
+                    "3": {
+                        "stage": ""
+                    },
+                    "4": {
+                        "stage": ""
+                    },
+                    "5": {
+                        "stage": ""
+                    },
+                    "6": {
+                        "stage": ""
+                    },
+                    "7": {
+                        "stage": ""
+                    },
+                    "8": {
+                        "stage": ""
+                    },
+                    "9": {
+                        "stage": ""
+                    },
+                    "10": {
+                        "stage": ""
+                    },
+                    "11": {
+                        "stage": ""
+                    },
+                    "12": {
+                        "stage": ""
+                    }
+                },
+                "note": "",
+                "price_base": 1700,
+                "price_discount": 1400,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            },
+            "premium": {
+                "contents": {
+                    "1": {
+                        "stage": ""
+                    },
+                    "2": {
+                        "stage": ""
+                    },
+                    "3": {
+                        "stage": ""
+                    },
+                    "4": {
+                        "stage": ""
+                    },
+                    "5": {
+                        "stage": ""
+                    },
+                    "6": {
+                        "stage": ""
+                    },
+                    "7": {
+                        "stage": ""
+                    },
+                    "8": {
+                        "stage": ""
+                    },
+                    "9": {
+                        "stage": ""
+                    },
+                    "10": {
+                        "stage": ""
+                    },
+                    "11": {
+                        "stage": ""
+                    },
+                    "12": {
+                        "stage": ""
+                    },
+                    "13": {
+                        "stage": ""
+                    },
+                    "14": {
+                        "stage": ""
+                    },
+                    "15": {
+                        "stage": ""
+                    }
+                },
+                "note": "",
+                "price_base": 2900,
+                "price_discount": 2500,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            }
+        },
+        "packages_global_note": {
+        },
+        "additional_services": {
+            "1": {
+                "name": "",
+                "description_markdown": "",
+                "price_base": 2900,
+                "price_discount": 2500,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            },
+            "2": {
+                "name": "",
+                "description_markdown": "",
+                "price_base": 2900,
+                "price_discount": 2500,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            },
+            "3": {
+                "name": "",
+                "description_markdown": "",
+                "price_base": 2900,
+                "price_discount": 2500,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            },
+            "4": {
+                "name": "",
+                "description_markdown": "",
+                "price_base": 2900,
+                "price_discount": 2500,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            },
+            "5": {
+                "name": "",
+                "description_markdown": "",
+                "price_base": 2900,
+                "price_discount": 2500,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            },
+            "6": {
+                "name": "",
+                "description_markdown": "",
+                "price_base": 2900,
+                "price_discount": 2500,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            },
+            "7": {
+                "name": "",
+                "description_markdown": "",
+                "price_base": 2900,
+                "price_discount": 2500,
+                "price_currency": "₽",
+                "price_unit": "м^2"
+            }
 
+        }
+
+    },
+
+    "customer_reviews": {
+        "1": {
+            "avatar_url": "",
+            "name": "",
+            "review_text_short": "",
+            "review_text_full": "",
+            "contacts": {
+                "tel": "",
+                "email": "",
+                "hyperlink": ""
+            }
+        },
+        "2": {
+            "avatar_url": "",
+            "name": "",
+            "review_text_short": "",
+            "review_text_full": "",
+            "contacts": {
+                "tel": "",
+                "email": "",
+                "hyperlink": ""
+            }
+        },
+        "3": {
+            "avatar_url": "",
+            "name": "",
+            "review_text_short": "",
+            "review_text_full": "",
+            "contacts": {
+                "tel": "",
+                "email": "",
+                "hyperlink": ""
+            }
+        }
     },
 
     "texts": {
-
+        "bio": {
+            "title": "",
+            "text_markdown": ""
+        }
     },
 
     "contacts": {
-
+        "tel": "",
+        "email": "",
+        "vk": "",
+        "facebook": "",
+        "instagram": ""
     },
 
     "author": {
