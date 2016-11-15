@@ -8,212 +8,161 @@
     "services": {
         "stages": {
             "0": {
-                "caption": "",
-                "descripton": ""
+                "caption": "Work Stage #0",
+                "descripton": "Work Stage #0 Description"
             },
             "1": {
-                "caption": "",
-                "descripton": ""
+                "caption": "Work Stage #1",
+                "descripton": "Work Stage #1 Description"
             },
             "2": {
-                "caption": "",
-                "descripton": ""
+                "caption": "Work Stage #2",
+                "descripton": "Work Stage #2 Description"
             },
             "3": {
-                "caption": "",
-                "descripton": ""
+                "caption": "Work Stage #3",
+                "descripton": "Work Stage #3 Description"
             },
             "4": {
-                "caption": "",
-                "descripton": ""
+                "caption": "Work Stage #4",
+                "descripton": "Work Stage #4 Description"
             },
             "5": {
-                "caption": "",
-                "descripton": ""
+                "caption": "Work Stage #5",
+                "descripton": "Work Stage #5 Description"
             }
         },
-        "packages": {
-            "sketch": {
+        "packages": [
+            {
+                "id": "sketch",
                 "name": "Sketch",
-                "contents": {
-                    "1": {
-                        "stage": ""
+                "services": [
+                    {
+                        "id": 1, 
+                        "name": "Sketch Stage 1"
                     },
-                    "2": {
-                        "stage": ""
+                    {
+                        "id": 2,
+                        "name": "Sketch Stage 2"
                     },
-                    "3": {
-                        "stage": ""
+                    {
+                        "id": 3,
+                        "name": "Sketch Stage 3"
                     }
-                },
-                "note": "",
-                "price_base": 950,
-                "price_discount": 750,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                ],
+                "note": "Warning: Cheap and Dirty",
+                "price": {
+                    "base": 1000,
+                    "discount": 999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
             },
-            "full": {
+            {
+                "id": "full",
                 "name": "Full",
-                "contents": {
-                    "1": {
-                        "stage": ""
+                "services": [
+                    {
+                        "id": 1,
+                        "name": "Full Stage 1"
                     },
-                    "2": {
-                        "stage": ""
+                    {
+                        "id": 2,
+                        "name": "Full Stage 1"
                     },
-                    "3": {
-                        "stage": ""
+                    {
+                        "id": 3,
+                        "name": "Full Stage 1"
                     },
-                    "4": {
-                        "stage": ""
-                    },
-                    "5": {
-                        "stage": ""
-                    },
-                    "6": {
-                        "stage": ""
-                    },
-                    "7": {
-                        "stage": ""
-                    },
-                    "8": {
-                        "stage": ""
-                    },
-                    "9": {
-                        "stage": ""
-                    },
-                    "10": {
-                        "stage": ""
-                    },
-                    "11": {
-                        "stage": ""
-                    },
-                    "12": {
-                        "stage": ""
+                    {
+                        "id": 4,
+                        "name": "Full Stage 4"
                     }
-                },
-                "note": "",
-                "price_base": 1700,
-                "price_discount": 1400,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                ],
+                "note": "Note: it's not actually full.",
+                "price": {
+                    "base": 2000,
+                    "discount": 1999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }                
             },
-            "premium": {
+            {
+                "id": "premium",
                 "name": "Premium",
-                "contents": {
-                    "1": {
-                        "stage": ""
+                "services": [
+                    {
+                        "id": 1,
+                        "name": "Premium Stage 1"
                     },
-                    "2": {
-                        "stage": ""
+                    {
+                        "id": 2,
+                        "name": "Premium Stage 2"
                     },
-                    "3": {
-                        "stage": ""
+                    {
+                        "id": 3,
+                        "name": "Premium Stage 3"
                     },
-                    "4": {
-                        "stage": ""
+                    {
+                        "id": 4,
+                        "name": "Premium Stage 4"
                     },
-                    "5": {
-                        "stage": ""
+                    {
+                        "id": 5,
+                        "name": "Premium Stage 5"
                     },
-                    "6": {
-                        "stage": ""
-                    },
-                    "7": {
-                        "stage": ""
-                    },
-                    "8": {
-                        "stage": ""
-                    },
-                    "9": {
-                        "stage": ""
-                    },
-                    "10": {
-                        "stage": ""
-                    },
-                    "11": {
-                        "stage": ""
-                    },
-                    "12": {
-                        "stage": ""
-                    },
-                    "13": {
-                        "stage": ""
-                    },
-                    "14": {
-                        "stage": ""
-                    },
-                    "15": {
-                        "stage": ""
+                    {
+                        "id": 6,
+                        "name": "Premium Stage 6"
                     }
-                },
+                ],
                 "note": "",
-                "price_base": 2900,
-                "price_discount": 2500,
-                "price_currency": "$",
-                "price_unit": "m^2"
+                "price": {
+                    "base": 3000,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
             }
-        },
-        "packages_global_note": {
-        },
+        ],
+        "packages_global_note": "Everything is a subject to change. Not a public offer.",
         "additional_services": {
             "1": {
-                "name": "",
-                "description_markdown": "",
-                "price_base": 2900,
-                "price_discount": 2500,
-                "price_currency": "$",
-                "price_unit": "m^2"
+                "name": "Additional Service #1",
+                "description_markdown": "It includes A, B and especially C.",
+                "price": {
+                    "base": 1000,
+                    "discount": 999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
             },
             "2": {
-                "name": "",
-                "description_markdown": "",
-                "price_base": 2900,
-                "price_discount": 2500,
-                "price_currency": "$",
-                "price_unit": "m^2"
+                "name": "Additional Service #2",
+                "price": {
+                    "base": 1000,
+                    "discount": 999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
             },
             "3": {
-                "name": "",
-                "description_markdown": "",
-                "price_base": 2900,
-                "price_discount": 2500,
-                "price_currency": "$",
-                "price_unit": "m^2"
+                "name": "Additional Service #3",
+                "price": {
+                    "base": 1000,
+                    "discount": 999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
             },
             "4": {
-                "name": "",
+                "name": "Premium Service #4",
                 "description_markdown": "",
-                "price_base": 2900,
-                "price_discount": 2500,
-                "price_currency": "$",
-                "price_unit": "m^2"
-            },
-            "5": {
-                "name": "",
-                "description_markdown": "",
-                "price_base": 2900,
-                "price_discount": 2500,
-                "price_currency": "$",
-                "price_unit": "m^2"
-            },
-            "6": {
-                "name": "",
-                "description_markdown": "",
-                "price_base": 2900,
-                "price_discount": 2500,
-                "price_currency": "$",
-                "price_unit": "m^2"
-            },
-            "7": {
-                "name": "",
-                "description_markdown": "",
-                "price_base": 2900,
-                "price_discount": 2500,
-                "price_currency": "$",
-                "price_unit": "m^2"
+                "price": {
+                    "base": 10000,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
             }
-
         }
 
     },

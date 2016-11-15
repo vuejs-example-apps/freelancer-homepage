@@ -1,3 +1,8 @@
 <div class="package-description">
     <h4>{{ package.name }}</h4>
+    <ul>
+        <li v-for="service in package.services">{{ service.name }}</li>
+    </ul>
+    <div class="note" v-if="package.note">{{ package.note }}</div>
+    <Price :price="package.price"></Price>
 </div>
