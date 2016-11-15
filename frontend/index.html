@@ -22,6 +22,10 @@
     <!-- page-level components -->
     <script type="text/javascript" src="/components/pages/Home.js"></script>
     <script type="text/javascript" src="/components/pages/Services.js"></script>
+        <!-- subpage components -->
+        <script type="text/javascript" src="/components/pages/subpages/services/GeneralWorkDescription.js"></script>
+        <script type="text/javascript" src="/components/pages/subpages/services/ServicePackages.js"></script>
+        <script type="text/javascript" src="/components/pages/subpages/services/AdditionalServices.js"></script>
     <script type="text/javascript" src="/components/pages/Portfolio.js"></script>
     <script type="text/javascript" src="/components/pages/Bio.js"></script>
     <script type="text/javascript" src="/components/pages/Contacts.js"></script>
@@ -42,7 +46,7 @@
     
         const router = new VueRouter({ routes: routes });
     
-        new Vue({ router: router}).$mount('app');                        
+        window.app = new Vue({ router: router}).$mount('app');                        
     </script>
 
 </body>
