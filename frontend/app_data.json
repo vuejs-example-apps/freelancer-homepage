@@ -2,7 +2,53 @@
     "title": "Freelancer Homepage Vue.js Example",
 
     "portfolio": {
-
+        "works": [
+            {
+                "id": 1,
+                "name": "Portfolio Work 1",
+                "description": "Portfolio Work 1 Description",
+                "pics": [
+                    {
+                        "id": 1,
+                        "title": "Work 1 Picture 1"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Work 1 Picture 2"
+                    }
+                ]                
+            },
+            {
+                "id": 2,
+                "name": "Portfolio Work 2",
+                "description": "Portfolio Work 2 Description",
+                "pics": [
+                    {
+                        "id": 1,
+                        "title": "Work 2 Picture 1"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Work 2 Picture 2"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Portfolio Work 3",
+                "description": "Portfolio Work 3 Description",
+                "pics": [
+                    {
+                        "id": 1,
+                        "title": "Work 3 Picture 1"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Work 3 Picture 2"
+                    }
+                ]
+            }
+        ]
     },
 
     "services": {
