@@ -34,6 +34,7 @@
         },
         "packages": {
             "sketch": {
+                "name": "Sketch",
                 "contents": {
                     "1": {
                         "stage": ""
@@ -52,6 +53,7 @@
                 "price_unit": "м^2"
             },
             "full": {
+                "name": "Full",
                 "contents": {
                     "1": {
                         "stage": ""
@@ -97,6 +99,7 @@
                 "price_unit": "м^2"
             },
             "premium": {
+                "name": "Premium",
                 "contents": {
                     "1": {
                         "stage": ""
@@ -147,8 +150,8 @@
                 "note": "",
                 "price_base": 2900,
                 "price_discount": 2500,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                "price_currency": "$",
+                "price_unit": "m^2"
             }
         },
         "packages_global_note": {
@@ -159,56 +162,56 @@
                 "description_markdown": "",
                 "price_base": 2900,
                 "price_discount": 2500,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                "price_currency": "$",
+                "price_unit": "m^2"
             },
             "2": {
                 "name": "",
                 "description_markdown": "",
                 "price_base": 2900,
                 "price_discount": 2500,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                "price_currency": "$",
+                "price_unit": "m^2"
             },
             "3": {
                 "name": "",
                 "description_markdown": "",
                 "price_base": 2900,
                 "price_discount": 2500,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                "price_currency": "$",
+                "price_unit": "m^2"
             },
             "4": {
                 "name": "",
                 "description_markdown": "",
                 "price_base": 2900,
                 "price_discount": 2500,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                "price_currency": "$",
+                "price_unit": "m^2"
             },
             "5": {
                 "name": "",
                 "description_markdown": "",
                 "price_base": 2900,
                 "price_discount": 2500,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                "price_currency": "$",
+                "price_unit": "m^2"
             },
             "6": {
                 "name": "",
                 "description_markdown": "",
                 "price_base": 2900,
                 "price_discount": 2500,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                "price_currency": "$",
+                "price_unit": "m^2"
             },
             "7": {
                 "name": "",
                 "description_markdown": "",
                 "price_base": 2900,
                 "price_discount": 2500,
-                "price_currency": "₽",
-                "price_unit": "м^2"
+                "price_currency": "$",
+                "price_unit": "m^2"
             }
 
         }

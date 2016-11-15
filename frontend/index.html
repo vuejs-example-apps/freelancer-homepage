@@ -9,8 +9,9 @@
         <App></App>
     </div>
     
-    <!-- vendor script standalone bundles -->
+    <!-- vendor script standalone bundles -->    
     <script src="/vendor/vue@2.0.5.js"></script>
+    <script src="/vendor/vuex@2.0.0.js"></script>
     <script src="/vendor/vue-router@2.0.1.js"></script>
     <script src="/vendor/ajax@0.0.0.min.js"></script>
     
@@ -22,9 +23,11 @@
     <!-- page-level components -->
     <script type="text/javascript" src="/components/pages/Home.js"></script>
     <script type="text/javascript" src="/components/pages/Services.js"></script>
-        <!-- subpage components -->
+        <!-- subpage-level components -->
         <script type="text/javascript" src="/components/pages/subpages/services/GeneralWorkDescription.js"></script>
         <script type="text/javascript" src="/components/pages/subpages/services/ServicePackages.js"></script>
+            <!-- subpage local subcomponents -->
+            <script type="text/javascript" src="/components/pages/subpages/services/components/PackageDescription.js"></script>
         <script type="text/javascript" src="/components/pages/subpages/services/AdditionalServices.js"></script>
     <script type="text/javascript" src="/components/pages/Portfolio.js"></script>
     <script type="text/javascript" src="/components/pages/Bio.js"></script>
@@ -45,8 +48,16 @@
         ];
     
         const router = new VueRouter({ routes: routes });
+
+        ajax.getJSON("/app_data.json", function (app_data) {
+            window.INITIAL_DATA = app_data;
+
+            window.store = new Vuex.Store({
+                state: window.INITIAL_DATA            
+            });
     
-        window.app = new Vue({ router: router}).$mount('app');                        
+            window.app = new Vue({ router: router}).$mount('app');
+        });                                
     </script>
 
 </body>

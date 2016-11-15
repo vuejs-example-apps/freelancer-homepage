@@ -1,6 +1,6 @@
 <main>
     <h2>ServicesPage</h2>
-    <GeneralWorkDescription></GeneralWorkDescription>
-    <ServicePackages></ServicePackages>
-    <AdditionalServices></AdditionalServices>
+    <GeneralWorkDescription :stages="services.stages"></GeneralWorkDescription>
+    <ServicePackages :packages="services.packages"></ServicePackages>
+    <AdditionalServices :services="services.additional_services"></AdditionalServices>
 </main>
