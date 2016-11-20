@@ -1,8 +1,0 @@
-<div class="additional-services">
-    <h3>Additional Services</h3> 
-    <div class="additional-service" v-for="service in services">
-        <h4>{{ service.name }}</h4>
-        <p v-show="service.description_markdown">{{ service.description_markdown }}</p>
-        <Price :price="service.price"></Price>
-    </div>
-</div>
