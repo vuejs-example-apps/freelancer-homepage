@@ -1,0 +1,10 @@
+Django==1.8.5
+Pillow==3.0.0
+Werkzeug==0.10.4
+django-extensions==1.5.7
+django-filebrowser==3.6.1
+django-grappelli==2.7.1
+ipython==4.0.0
+pytz
+django-ordered-model==0.4.2
+django-solo-grappelli
