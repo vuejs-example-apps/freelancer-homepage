@@ -1,0 +1,271 @@
+{
+    "title": "Freelancer Homepage Vue.js Example",
+
+    "portfolio": {
+        "works": [
+            {
+                "id": 1,
+                "name": "Portfolio Work 1",
+                "description": "Portfolio Work 1 Description",
+                "pics": [
+                    {
+                        "id": 1,
+                        "title": "Work 1 Picture 1"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Work 1 Picture 2"
+                    }
+                ]                
+            },
+            {
+                "id": 2,
+                "name": "Portfolio Work 2",
+                "description": "Portfolio Work 2 Description",
+                "pics": [
+                    {
+                        "id": 1,
+                        "title": "Work 2 Picture 1"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Work 2 Picture 2"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "name": "Portfolio Work 3",
+                "description": "Portfolio Work 3 Description",
+                "pics": [
+                    {
+                        "id": 1,
+                        "title": "Work 3 Picture 1"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Work 3 Picture 2"
+                    }
+                ]
+            }
+        ]
+    },
+
+    "services": {
+        "stages": {
+            "0": {
+                "caption": "Work Stage #0",
+                "descripton": "Work Stage #0 Description"
+            },
+            "1": {
+                "caption": "Work Stage #1",
+                "descripton": "Work Stage #1 Description"
+            },
+            "2": {
+                "caption": "Work Stage #2",
+                "descripton": "Work Stage #2 Description"
+            },
+            "3": {
+                "caption": "Work Stage #3",
+                "descripton": "Work Stage #3 Description"
+            },
+            "4": {
+                "caption": "Work Stage #4",
+                "descripton": "Work Stage #4 Description"
+            },
+            "5": {
+                "caption": "Work Stage #5",
+                "descripton": "Work Stage #5 Description"
+            }
+        },
+        "packages": [
+            {
+                "id": "sketch",
+                "name": "Sketch",
+                "services": [
+                    {
+                        "id": 1, 
+                        "name": "Sketch Stage 1"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Sketch Stage 2"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Sketch Stage 3"
+                    }
+                ],
+                "note": "Warning: Cheap and Dirty",
+                "price": {
+                    "base": 1000,
+                    "discount": 999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
+            },
+            {
+                "id": "full",
+                "name": "Full",
+                "services": [
+                    {
+                        "id": 1,
+                        "name": "Full Stage 1"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Full Stage 1"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Full Stage 1"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Full Stage 4"
+                    }
+                ],
+                "note": "Note: it's not actually full.",
+                "price": {
+                    "base": 2000,
+                    "discount": 1999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }                
+            },
+            {
+                "id": "premium",
+                "name": "Premium",
+                "services": [
+                    {
+                        "id": 1,
+                        "name": "Premium Stage 1"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Premium Stage 2"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Premium Stage 3"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Premium Stage 4"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Premium Stage 5"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Premium Stage 6"
+                    }
+                ],
+                "note": "",
+                "price": {
+                    "base": 3000,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
+            }
+        ],
+        "packages_global_note": "Everything is a subject to change. Not a public offer.",
+        "additional_services": {
+            "1": {
+                "name": "Additional Service #1",
+                "description_markdown": "It includes A, B and especially C.",
+                "price": {
+                    "base": 1000,
+                    "discount": 999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
+            },
+            "2": {
+                "name": "Additional Service #2",
+                "price": {
+                    "base": 1000,
+                    "discount": 999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
+            },
+            "3": {
+                "name": "Additional Service #3",
+                "price": {
+                    "base": 1000,
+                    "discount": 999,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
+            },
+            "4": {
+                "name": "Premium Service #4",
+                "description_markdown": "",
+                "price": {
+                    "base": 10000,
+                    "currency": "$",
+                    "unit": "m^2"
+                }
+            }
+        }
+
+    },
+
+    "customer_reviews": {
+        "1": {
+            "avatar_url": "",
+            "name": "",
+            "review_text_short": "",
+            "review_text_full": "",
+            "contacts": {
+                "tel": "",
+                "email": "",
+                "hyperlink": ""
+            }
+        },
+        "2": {
+            "avatar_url": "",
+            "name": "",
+            "review_text_short": "",
+            "review_text_full": "",
+            "contacts": {
+                "tel": "",
+                "email": "",
+                "hyperlink": ""
+            }
+        },
+        "3": {
+            "avatar_url": "",
+            "name": "",
+            "review_text_short": "",
+            "review_text_full": "",
+            "contacts": {
+                "tel": "",
+                "email": "",
+                "hyperlink": ""
+            }
+        }
+    },
+
+    "texts": {
+        "bio": {
+            "title": "",
+            "text_markdown": ""
+        }
+    },
+
+    "contacts": {
+        "tel": "",
+        "email": "",
+        "vk": "",
+        "facebook": "",
+        "instagram": ""
+    },
+
+    "author": {
+        "name": "Grigoriy Beziuk",
+        "hyperlink": "http://vk.com/gbezyuk"
+    }    
+}

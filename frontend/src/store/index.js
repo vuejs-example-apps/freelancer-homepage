@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+const initial_data = require('./initial_data.json')
 // import { fetchItem, fetchItems, fetchIdsByType, fetchUser } from './api'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  state: {
+  state: initial_data
+  // {
     // activeType: null,
     // itemsPerPage: 20,
     // items: {/* [id: number]: Item */},
@@ -17,7 +19,7 @@ const store = new Vuex.Store({
     //   ask: [],
     //   job: []
     // }
-  },
+  // },
 
   // actions: {
   //   // ensure data for rendering given list type

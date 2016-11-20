@@ -1,11 +1,12 @@
 <template>
-  <div class="home-view">    
-  </div>
+  <main>
+    <h2>BioPage</h2>    
+  </main>
 </template>
 
 <script>
 export default {
-  name: 'home-view'
+  name: 'bio-page'  
 }
 </script>
 

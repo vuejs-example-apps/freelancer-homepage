@@ -14,6 +14,16 @@ sync(store, router)
 //   Vue.filter(key, filters[key])
 // })
 
+// register globally used common components
+import AppHeader from './components/common/AppHeader.vue'
+import AppFooter from './components/common/AppFooter.vue'
+import NavigationLinks from './components/common/NavigationLinks.vue'
+import Price from './components/common/Price.vue'
+Vue.component('app-header', AppHeader)
+Vue.component('app-footer', AppFooter)
+Vue.component('navigation-links', NavigationLinks)
+Vue.component('price', Price)
+
 // create the app instance.
 // here we inject the router and store to all child components,
 // making them available everywhere as `this.$router` and `this.$store`.
