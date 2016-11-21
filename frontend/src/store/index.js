@@ -8,7 +8,48 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   // state: initial_data
-  state: api_snapshot
+  state: api_snapshot,
+  // state: {
+  //   portfolio_works: [],
+  //   contacts: {
+  //     tel: '',
+  //     email: '',
+  //     instagram: '',
+  //     vk: '',
+  //     facebook: ''
+  //   },
+  //   customer_reviews: [],
+  //   author: {
+  //     name: '',
+  //     hyperlink: ''
+  //   },
+  //   texts: {},
+  //   services: {
+  //     stages: [],
+  //     packages: [],
+  //     additional_services: [],
+  //     packages_global_note: ''
+  //   }
+  // },
+
+  mutations: {
+    SET_SNAPSHOT: (state, {contacts, customer_reviews, portfolio_works, author, texts, services}) => {
+      state.contacts = {...contacts}
+      state.customer_reviews = {...customer_reviews}
+      state.portfolio_works = {...portfolio_works}
+      state.author = {...author}
+      state.texts = {...texts}
+      state.services = {...services}
+      return state
+    }
+  },
+
+  actions: {
+    FETCH_SNAPSHOT: ({ commit, dispatch, state }, { type }) => {
+      // TODO
+    },
+  }
+
   // {
     // activeType: null,
     // itemsPerPage: 20,
