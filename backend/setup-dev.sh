@@ -1,5 +1,5 @@
 #!/bin/sh
-echo 'This script will setup DA django project development environemnt for you\n'
+echo 'This script will setup Freelance Homepage django project development environemnt for you\n'
 # cp core/settings_local.dev.example core/settings_local.py
 
 ./setup-common.sh
