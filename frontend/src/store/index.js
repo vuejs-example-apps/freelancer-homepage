@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-const initial_data = require('./initial_data.json')
+// const initial_data = require('./initial_data.json')
+const api_snapshot = require('./api_snapshot.json')
 // import { fetchItem, fetchItems, fetchIdsByType, fetchUser } from './api'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  state: initial_data
+  // state: initial_data
+  state: api_snapshot
   // {
     // activeType: null,
     // itemsPerPage: 20,

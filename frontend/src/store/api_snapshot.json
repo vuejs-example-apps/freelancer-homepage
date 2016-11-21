@@ -1,0 +1,253 @@
+{
+    "portfolio_works": [
+        {
+            "cover_image": "/media/uploads/portfolio/screen_shot_2016-11-20_at_17.48.51.png",
+            "is_enabled": true,
+            "name": "PW1",
+            "order": 0,
+            "modified": "2016-11-21T07:31:53.389Z",
+            "created": "2016-11-21T07:29:46.503Z",
+            "images": [
+                {
+                    "is_enabled": true,
+                    "title": "PI11",
+                    "order": 0,
+                    "modified": "2016-11-21T07:29:46.505Z",
+                    "created": "2016-11-21T07:29:46.505Z",
+                    "id": 1,
+                    "image": "/media/uploads/portfolio/screen_shot_2016-11-20_at_17.48.51.png",
+                    "portfolio_work": 1
+                },
+                {
+                    "is_enabled": true,
+                    "title": "PI12",
+                    "order": 1,
+                    "modified": "2016-11-21T07:29:46.505Z",
+                    "created": "2016-11-21T07:29:46.505Z",
+                    "id": 2,
+                    "image": "/media/uploads/portfolio/screen_shot_2016-11-20_at_17.48.51.png",
+                    "portfolio_work": 1
+                },
+                {
+                    "is_enabled": true,
+                    "title": "PI13",
+                    "order": 2,
+                    "modified": "2016-11-21T07:29:46.506Z",
+                    "created": "2016-11-21T07:29:46.506Z",
+                    "id": 3,
+                    "image": "/media/uploads/portfolio/screen_shot_2016-11-20_at_17.48.51.png",
+                    "portfolio_work": 1
+                }
+            ],
+            "id": 1,
+            "description": ""
+        },
+        {
+            "cover_image": "/media/uploads/portfolio/screen_shot_2016-11-20_at_17.48.51.png",
+            "is_enabled": true,
+            "name": "PW2",
+            "order": 1,
+            "modified": "2016-11-21T07:31:53.383Z",
+            "created": "2016-11-21T07:30:04.855Z",
+            "images": [
+                {
+                    "is_enabled": true,
+                    "title": "PI21",
+                    "order": 3,
+                    "modified": "2016-11-21T07:30:04.857Z",
+                    "created": "2016-11-21T07:30:04.856Z",
+                    "id": 4,
+                    "image": "/media/uploads/portfolio/screen_shot_2016-11-20_at_17.48.51.png",
+                    "portfolio_work": 2
+                },
+                {
+                    "is_enabled": true,
+                    "title": "PI22",
+                    "order": 4,
+                    "modified": "2016-11-21T07:30:04.857Z",
+                    "created": "2016-11-21T07:30:04.857Z",
+                    "id": 5,
+                    "image": "/media/uploads/portfolio/screen_shot_2016-11-20_at_17.48.51.png",
+                    "portfolio_work": 2
+                },
+                {
+                    "is_enabled": true,
+                    "title": "PI23",
+                    "order": 5,
+                    "modified": "2016-11-21T07:30:04.858Z",
+                    "created": "2016-11-21T07:30:04.858Z",
+                    "id": 6,
+                    "image": "/media/uploads/portfolio/screen_shot_2016-11-20_at_17.48.51.png",
+                    "portfolio_work": 2
+                }
+            ],
+            "id": 2,
+            "description": ""
+        }
+    ],
+    "contacts": {
+        "tel": "555 55 55",
+        "instagram": "https://www.instagram.com/gbezyuk/",
+        "email": "me@example.com",
+        "vk": "https://vk.com/id85082",
+        "facebook": "https://www.facebook.com/grigory.bezyuk"
+    },
+    "customer_reviews": [
+        {
+            "is_enabled": true,
+            "review_text": "Awesome, just awesome!",
+            "order": 0,
+            "modified": "2016-11-21T07:44:27.988Z",
+            "created": "2016-11-21T07:44:27.988Z",
+            "customer_name": "Grigoriy Beziuk",
+            "id": 1,
+            "contacts": {
+                "tel": "+79633441180",
+                "email": "me@gbezyuk.ru",
+                "hyperlink": "http://vk.com/id85082"
+            },
+            "avatar": "/media/uploads/customer_reviews/avatars/me_amster_side_resized.jpg"
+        }
+    ],
+    "author": {
+        "name": "Grigoriy Beziuk",
+        "hyperlink": "http://vk.com/id85082"
+    },
+    "texts": {
+        "about_me": {
+            "text": "Lorem ipsum, ladies and gentlemen!"
+        }
+    },
+    "services": {
+        "additional_services": [],
+        "stages": [
+            {
+                "is_enabled": true,
+                "name": "First Stage",
+                "order": 0,
+                "modified": "2016-11-21T07:24:36.261Z",
+                "created": "2016-11-21T07:24:36.261Z",
+                "id": 1,
+                "description": "At the first stage we sorta do the first things first"
+            },
+            {
+                "is_enabled": true,
+                "name": "Second stage",
+                "order": 1,
+                "modified": "2016-11-21T07:24:55.288Z",
+                "created": "2016-11-21T07:24:55.288Z",
+                "id": 2,
+                "description": "Second stage is when we do our second things"
+            }
+        ],
+        "packages": [
+            {
+                "is_enabled": true,
+                "name": "SP1",
+                "order": 0,
+                "modified": "2016-11-21T07:25:57.050Z",
+                "created": "2016-11-21T07:25:57.050Z",
+                "id": 1,
+                "services": [
+                    {
+                        "is_enabled": true,
+                        "package": 1,
+                        "order": 0,
+                        "modified": "2016-11-21T07:25:57.052Z",
+                        "created": "2016-11-21T07:25:57.052Z",
+                        "id": 1,
+                        "name": "SA"
+                    },
+                    {
+                        "is_enabled": true,
+                        "package": 1,
+                        "order": 1,
+                        "modified": "2016-11-21T07:25:57.053Z",
+                        "created": "2016-11-21T07:25:57.053Z",
+                        "id": 2,
+                        "name": "SB"
+                    },
+                    {
+                        "is_enabled": true,
+                        "package": 1,
+                        "order": 2,
+                        "modified": "2016-11-21T07:25:57.053Z",
+                        "created": "2016-11-21T07:25:57.053Z",
+                        "id": 3,
+                        "name": "SC"
+                    }
+                ],
+                "note": "Service Package 1",
+                "price": {
+                    "unit": "item",
+                    "base": 1000,
+                    "discount": 999,
+                    "currency": "$"
+                }
+            },
+            {
+                "is_enabled": true,
+                "name": "SP2",
+                "order": 1,
+                "modified": "2016-11-21T07:26:41.440Z",
+                "created": "2016-11-21T07:26:41.440Z",
+                "id": 2,
+                "services": [
+                    {
+                        "is_enabled": true,
+                        "package": 2,
+                        "order": 3,
+                        "modified": "2016-11-21T07:26:41.442Z",
+                        "created": "2016-11-21T07:26:41.442Z",
+                        "id": 4,
+                        "name": "Measure"
+                    },
+                    {
+                        "is_enabled": true,
+                        "package": 2,
+                        "order": 4,
+                        "modified": "2016-11-21T07:26:41.442Z",
+                        "created": "2016-11-21T07:26:41.442Z",
+                        "id": 5,
+                        "name": "Design"
+                    },
+                    {
+                        "is_enabled": true,
+                        "package": 2,
+                        "order": 5,
+                        "modified": "2016-11-21T07:26:41.443Z",
+                        "created": "2016-11-21T07:26:41.443Z",
+                        "id": 6,
+                        "name": "Build"
+                    },
+                    {
+                        "is_enabled": true,
+                        "package": 2,
+                        "order": 6,
+                        "modified": "2016-11-21T07:26:41.444Z",
+                        "created": "2016-11-21T07:26:41.444Z",
+                        "id": 7,
+                        "name": "???"
+                    },
+                    {
+                        "is_enabled": true,
+                        "package": 2,
+                        "order": 7,
+                        "modified": "2016-11-21T07:26:41.444Z",
+                        "created": "2016-11-21T07:26:41.444Z",
+                        "id": 8,
+                        "name": "Profit"
+                    }
+                ],
+                "note": "Service Package 2",
+                "price": {
+                    "unit": "m^2",
+                    "base": 2000,
+                    "discount": 1499,
+                    "currency": "$"
+                }
+            }
+        ],
+        "packages_global_note": "And it will be gone too."
+    }
+}
