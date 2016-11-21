@@ -26,12 +26,19 @@ class CustomerReview(IsEnabledModel, TimestampsModel, OrderedModel):
         data = {}
         for f in opts.concrete_fields:
             # TODO: check field type instead of hard-coding names
+            if f.name == 'tel' or f.name == 'email' or f.name == 'hyperlink':
+                continue
             if f.name == 'avatar':
                 file  = f.value_from_object(self)
                 if file:
                     data[f.name] = file.url
             else:
                 data[f.name] = f.value_from_object(self)
+        data['contacts'] = {
+            'tel': self.tel,
+            'email': self.email,
+            'hyperlink': self.hyperlink
+        }
         return data
 
 
