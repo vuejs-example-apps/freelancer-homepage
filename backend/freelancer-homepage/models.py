@@ -111,7 +111,15 @@ class ServicePackage(IsEnabledModel, TimestampsModel, OrderedModel):
         opts = self._meta
         data = {}
         for f in opts.concrete_fields:
+            if f.name.startswith('price_'):
+                continue
             data[f.name] = f.value_from_object(self)
+        data['price'] = {
+            'base': self.price_base,
+            'discount': self.price_discount,
+            'currency': self.price_currency,
+            'unit': self.price_unit
+        }
         data['services'] = [f.to_dict() for f in self.services.all()]
         return data
 
@@ -157,7 +165,15 @@ class AdditionalService(IsEnabledModel, TimestampsModel, OrderedModel):
         opts = self._meta
         data = {}
         for f in opts.concrete_fields:
+            if f.name.startswith('price_'):
+                continue
             data[f.name] = f.value_from_object(self)
+        data['price'] = {
+            'base': self.price_base,
+            'discount': self.price_discount,
+            'currency': self.price_currency,
+            'unit': self.price_unit
+        }
         return data
 
 
