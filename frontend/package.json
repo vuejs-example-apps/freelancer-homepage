@@ -1,6 +1,6 @@
 {
   "name": "freelancer-homepage",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "description": "A typical freelancer's site with services description, portfolio, bio, contacts and order form.",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/vuejs-example-apps/vue-universal-admin#readme",
   "dependencies": {
+    "axios": "^0.15.2",
     "es6-promise": "^3.2.1",
     "express": "^4.14.0",
     "lru-cache": "^4.0.1",

@@ -8,12 +8,20 @@
 </template>
 
 <script>
+const fetchInitialData = store => {
+  return store.dispatch(`fetchSnapshot`)
+}
+
 export default {
   name: 'app',  
   computed: {
     title: function () { return this.$store.state.title },
     author: function () { return this.$store.state.author }
-  }
+  },
+  preFetch: fetchInitialData,
+  // mounted () {
+  //   fetchInitialData(this.$store)
+  // }
 }
 </script>
 

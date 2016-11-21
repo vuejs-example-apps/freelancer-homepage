@@ -6,7 +6,7 @@ module.exports = {
   devtool: '#source-map',
   entry: {
     app: './src/client-entry.js',
-    vendor: ['vue', 'vue-router', 'vuex', 'lru-cache', 'es6-promise']
+    vendor: ['vue', 'vue-router', 'vuex', 'axios', 'lru-cache', 'es6-promise']
   },
   output: {
     path: path.resolve(__dirname, '../dist'),

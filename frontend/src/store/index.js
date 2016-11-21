@@ -1,145 +1,28 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// const initial_data = require('./initial_data.json')
-const api_snapshot = require('./api_snapshot.json')
-// import { fetchItem, fetchItems, fetchIdsByType, fetchUser } from './api'
+
+const inBrowser = typeof window !== 'undefined'
+// if in browser, use pre-fetched state injected by SSR
+const state = (inBrowser && window.__INITIAL_STATE__) || require('./api_snapshot.json')
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
-  // state: initial_data
-  state: api_snapshot,
-  // state: {
-  //   portfolio_works: [],
-  //   contacts: {
-  //     tel: '',
-  //     email: '',
-  //     instagram: '',
-  //     vk: '',
-  //     facebook: ''
-  //   },
-  //   customer_reviews: [],
-  //   author: {
-  //     name: '',
-  //     hyperlink: ''
-  //   },
-  //   texts: {},
-  //   services: {
-  //     stages: [],
-  //     packages: [],
-  //     additional_services: [],
-  //     packages_global_note: ''
-  //   }
-  // },
+import * as actions from './actions'
 
-  mutations: {
-    SET_SNAPSHOT: (state, {contacts, customer_reviews, portfolio_works, author, texts, services}) => {
-      state.contacts = {...contacts}
-      state.customer_reviews = {...customer_reviews}
-      state.portfolio_works = {...portfolio_works}
-      state.author = {...author}
-      state.texts = {...texts}
-      state.services = {...services}
-      return state
-    }
-  },
-
-  actions: {
-    FETCH_SNAPSHOT: ({ commit, dispatch, state }, { type }) => {
-      // TODO
-    },
+const mutations = {
+  SET_SNAPSHOT: (state, {contacts, customer_reviews, portfolio_works, author, texts, services}) => {
+    state.contacts = {...contacts}
+    state.customer_reviews = {...customer_reviews}
+    state.portfolio_works = {...portfolio_works}
+    state.author = {...author}
+    state.texts = {...texts}
+    state.services = {...services}
+    return state
   }
+}
 
-  // {
-    // activeType: null,
-    // itemsPerPage: 20,
-    // items: {/* [id: number]: Item */},
-    // users: {/* [id: string]: User */},
-    // lists: {
-    //   top: [/* number */],
-    //   new: [],
-    //   show: [],
-    //   ask: [],
-    //   job: []
-    // }
-  // },
-
-  // actions: {
-  //   // ensure data for rendering given list type
-  //   FETCH_LIST_DATA: ({ commit, dispatch, state }, { type }) => {
-  //     commit('SET_ACTIVE_TYPE', { type })
-  //     return fetchIdsByType(type)
-  //       .then(ids => commit('SET_LIST', { type, ids }))
-  //       .then(() => dispatch('ENSURE_ACTIVE_ITEMS'))
-  //   },
-
-  //   // ensure all active items are fetched
-  //   ENSURE_ACTIVE_ITEMS: ({ dispatch, getters }) => {
-  //     return dispatch('FETCH_ITEMS', {
-  //       ids: getters.activeIds
-  //     })
-  //   },
-
-  //   FETCH_ITEMS: ({ commit, state }, { ids }) => {
-  //     // only fetch items that we don't already have.
-  //     ids = ids.filter(id => !state.items[id])
-  //     if (ids.length) {
-  //       return fetchItems(ids).then(items => commit('SET_ITEMS', { items }))
-  //     } else {
-  //       return Promise.resolve()
-  //     }
-  //   },
-
-  //   FETCH_USER: ({ commit, state }, { id }) => {
-  //     return state.users[id]
-  //       ? Promise.resolve(state.users[id])
-  //       : fetchUser(id).then(user => commit('SET_USER', { user }))
-  //   }
-  // },
-
-  // mutations: {
-  //   SET_ACTIVE_TYPE: (state, { type }) => {
-  //     state.activeType = type
-  //   },
-
-  //   SET_LIST: (state, { type, ids }) => {
-  //     state.lists[type] = ids
-  //   },
-
-  //   SET_ITEMS: (state, { items }) => {
-  //     items.forEach(item => {
-  //       if (item) {
-  //         Vue.set(state.items, item.id, item)
-  //       }
-  //     })
-  //   },
-
-  //   SET_USER: (state, { user }) => {
-  //     Vue.set(state.users, user.id, user)
-  //   }
-  // },
-
-  // getters: {
-  //   // ids of the items that should be currently displayed based on
-  //   // current list type and current pagination
-  //   activeIds (state) {
-  //     const { activeType, itemsPerPage, lists } = state
-  //     const page = Number(state.route.params.page) || 1
-  //     if (activeType) {
-  //       const start = (page - 1) * itemsPerPage
-  //       const end = page * itemsPerPage
-  //       return lists[activeType].slice(start, end)
-  //     } else {
-  //       return []
-  //     }
-  //   },
-
-  //   // items that should be currently displayed.
-  //   // this Array may not be fully fetched.
-  //   activeItems (state, getters) {
-  //     return getters.activeIds.map(id => state.items[id]).filter(_ => _)
-  //   }
-  // }
+export default new Vuex.Store({
+  state,
+  actions,
+  mutations
 })
-
-export default store
