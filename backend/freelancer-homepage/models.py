@@ -1,14 +1,15 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _, ugettext as __
-from core.shared.models import IsEnabledModel, TimestampsModel
+from core.shared.models import IsEnabledModel, TimestampsModel, OrderedModel
 from filebrowser.fields import FileBrowseField
 from solo.models import SingletonModel
 
 
-class CustomerReview(IsEnabledModel, TimestampsModel):
+class CustomerReview(IsEnabledModel, TimestampsModel, OrderedModel):
     class Meta:
         verbose_name = _('customer review')
         verbose_name_plural = _('customer reviews')
+        ordering = ('order',)
 
     customer_name = models.CharField(_('name'), max_length=255)
     review_text = models.TextField(_('review text'))
@@ -34,10 +35,11 @@ class CustomerReview(IsEnabledModel, TimestampsModel):
         return data
 
 
-class PortfolioWork(IsEnabledModel, TimestampsModel):
+class PortfolioWork(IsEnabledModel, TimestampsModel, OrderedModel):
     class Meta:
         verbose_name = _('portfolio work')
         verbose_name_plural = _('portfolio works')
+        ordering = ('order',)
 
     name = models.CharField(_('name'), max_length=255)
     description = models.TextField(_('description'), null=True, blank=True)
@@ -61,10 +63,11 @@ class PortfolioWork(IsEnabledModel, TimestampsModel):
         return data
 
 
-class PortfolioImage(IsEnabledModel, TimestampsModel):
+class PortfolioImage(IsEnabledModel, TimestampsModel, OrderedModel):
     class Meta:
         verbose_name = _('portfolio image')
         verbose_name_plural = _('portfolio images')
+        ordering = ('order',)
 
     portfolio_work = models.ForeignKey(to=PortfolioWork, verbose_name=_('portfolio_work'), related_name='images')
     title = models.CharField(_('title'), max_length=255)
@@ -87,10 +90,11 @@ class PortfolioImage(IsEnabledModel, TimestampsModel):
         return data
 
 
-class ServicePackage(IsEnabledModel, TimestampsModel):
+class ServicePackage(IsEnabledModel, TimestampsModel, OrderedModel):
     class Meta:
         verbose_name = _('service package')
         verbose_name_plural = _('service packages')
+        ordering = ('order',)
 
     name = models.CharField(_('name'), max_length=255)
     note = models.TextField(_('note'), null=True, blank=True)
@@ -112,10 +116,11 @@ class ServicePackage(IsEnabledModel, TimestampsModel):
         return data
 
 
-class Service(IsEnabledModel, TimestampsModel):
+class Service(IsEnabledModel, TimestampsModel, OrderedModel):
     class Meta:
         verbose_name = _('service')
         verbose_name_plural = _('services')
+        ordering = ('order',)
 
     package = models.ForeignKey(to=ServicePackage, verbose_name=_('package'), related_name='services')
     name = models.CharField(_('name'), max_length=255)
@@ -131,10 +136,11 @@ class Service(IsEnabledModel, TimestampsModel):
         return data
 
 
-class AdditionalService(IsEnabledModel, TimestampsModel):
+class AdditionalService(IsEnabledModel, TimestampsModel, OrderedModel):
     class Meta:
         verbose_name = _('additional service')
         verbose_name_plural = _('additional services')
+        ordering = ('order',)
 
     name = models.CharField(_('name'), max_length=255)
     description = models.TextField(_('description'), null=True, blank=True)
@@ -155,8 +161,28 @@ class AdditionalService(IsEnabledModel, TimestampsModel):
         return data
 
 
-class ServicesPageTexts(SingletonModel):
+class WorkStage(IsEnabledModel, TimestampsModel, OrderedModel):
+    class Meta:
+        verbose_name = _('work stage')
+        verbose_name_plural = _('work stages')
+        ordering = ('order',)
 
+    name = models.CharField(_('name'), max_length=255)
+    description = models.TextField(_('description'), null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def to_dict(self):
+        opts = self._meta
+        data = {}
+        for f in opts.concrete_fields:
+            data[f.name] = f.value_from_object(self)
+        return data
+
+
+class ServicesPageTexts(SingletonModel):
+    
     packages_global_note = models.TextField(_('text'), default='And it will be gone too.')
 
     def __str__(self):
@@ -174,26 +200,7 @@ class ServicesPageTexts(SingletonModel):
             data[f.name] = f.value_from_object(self)
         return data
 
-
-class WorkStage(IsEnabledModel, TimestampsModel):
-    class Meta:
-        verbose_name = _('work stage')
-        verbose_name_plural = _('work stages')
-
-    name = models.CharField(_('name'), max_length=255)
-    description = models.TextField(_('description'), null=True, blank=True)
-
-    def __str__(self):
-        return self.name
-
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            data[f.name] = f.value_from_object(self)
-        return data
-
-
+        
 class Contacts(SingletonModel):
     tel = models.CharField(_('tel'), max_length=255, default='555 55 55')
     email = models.EmailField(_('email'), max_length=255, default='me@example.com')

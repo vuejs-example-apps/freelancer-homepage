@@ -1,4 +1,5 @@
 from django.contrib import admin
+from ordered_model.admin import OrderedModelAdmin
 from solo.admin import SingletonModelAdmin
 from core.shared.admin import EnableDisableAdmin
 from django.utils.translation import ugettext_lazy as _
@@ -15,20 +16,24 @@ class ServicePackageAdmin(EnableDisableAdmin):
     inlines = (ServiceInline,)
 
 
-class AdditionalServiceAdmin(EnableDisableAdmin):
-    pass
-
-
-class CustomerReviewAdmin(EnableDisableAdmin):
-    pass
-
-
 class PortfolioImageInline(admin.TabularInline):
     model = PortfolioImage
 
 
-class PortfolioWorkAdmin(EnableDisableAdmin):
-    list_display = ('id', 'thumbnail', 'name', 'is_enabled', 'created', 'modified')
+class AdditionalServiceAdmin(EnableDisableAdmin, OrderedModelAdmin):
+    pass
+
+
+class CustomerReviewAdmin(EnableDisableAdmin, OrderedModelAdmin):
+    pass
+
+
+class WorkStageAdmin(EnableDisableAdmin, OrderedModelAdmin):
+    pass
+
+
+class PortfolioWorkAdmin(EnableDisableAdmin, OrderedModelAdmin):
+    list_display = ('id', 'move_up_down_links', 'order', 'thumbnail', 'name', 'is_enabled', 'created', 'modified')
     list_filter = ('is_enabled',)
     list_display_links = ('id', 'thumbnail')
 
@@ -46,6 +51,7 @@ class PortfolioWorkAdmin(EnableDisableAdmin):
     inlines = (PortfolioImageInline,)
 
 
+admin.site.register(WorkStage, WorkStageAdmin)
 admin.site.register(CustomerReview, CustomerReviewAdmin)
 admin.site.register(PortfolioWork, PortfolioWorkAdmin)
 admin.site.register(ServicePackage, ServicePackageAdmin)
