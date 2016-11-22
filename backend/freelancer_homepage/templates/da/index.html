@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load solo_tags i18n fb_versions %}
+{% get_solo 'da.Contacts' as contacts %}
+{% get_solo 'da.AboutMe' as about_me %}
+<html lang="ru">
+<head>
+  <meta name="viewport" content="initial-scale=1" />
+  <link rel="stylesheet" href="/static/css/da.css" type="text/css" />
+  <link rel="stylesheet" href="/static/lightbox/css/lightbox.css" type="text/css" />
+</head>
+<body>
+  <div class="header">
+    <h1 class="logo">D<span>A</span></h1>
+    <div class="contacts">
+      <a href="tel:{{ contacts.phone }}" class="phone">{{ contacts.phone }}</a>
+      <a href="mailto:{{ contacts.email }}" class="email">{{ contacts.email }}</a>
+    </div>
+    <nav>
+      <a href="#portfolio">{% trans "Portfolio" %}</a>
+      <a href="#about-me">{% trans "About&nbsp;me" %}</a>
+      <a href="#services">{% trans "Services" %}</a>
+    </nav>
+  </div>
+  <div class="portfolio" id="portfolio">{% for work in works %}
+    {% version work.image '1000x?' as large_version %}
+    {% version work.image '300x300' as thumbnail %}
+    <a class="work" href="{{ large_version.url }}" data-lightbox="portfolio" data-title="{{ work.name }}"><img src="{{ thumbnail.url }}" /></a>
+  {% endfor %}</div>
+  <div class="about" id="about-me">
+    <img class="photo" src="{{ about_me.image.url }}"></img>
+    <div class="self-description">{{ about_me.text }}</div>
+  </div>
+  <div class="services" id="services">{% for service in services %}
+    <div class="service">
+      <h2>{{ service.name }}</h2>
+      <div class="price">{{ service.price_line }}</div>
+      <ul class="features">{% for feature in service.features.enabled %}
+        <li>{{ feature.text }}</li>
+      {% endfor %}</ul>
+    </div>
+  {% endfor %}</div>
+  <div class="footer">
+    <h1 class="logo">D<span>A</span></h1>
+    <div class="contacts">
+      <a href="tel:{{ contacts.phone }}" class="phone">{{ contacts.phone }}</a>
+      <a href="mailto:{{ contacts.email }}" class="email">{{ contacts.email }}</a>
+    </div>
+    <nav>
+      <a href="#portfolio">{% trans "Portfolio" %}</a>
+      <a href="#about-me">{% trans "About&nbsp;me" %}</a>
+      <a href="#services">{% trans "Services" %}</a>
+    </nav>
+    <div class="copyright">Site by <a href="https://vk.com/gbezyuk">Grigoriy Beziuk</a></div>
+  </div>
+  <a href="#" class="link-to-top">{% trans "on top" %}</a>
+
+  <script src="/static/jquery.min.js"></script>
+  <script src="/static/lightbox/js/lightbox.min.js"></script>
+</body>
+</html>

@@ -35,10 +35,6 @@ class PortfolioWork(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):
     def __str__(self):
         return self.name
 
-    def _to_dict_pre_finish_hook(self, data):
-        data['images'] = [i.to_dict() for i in self.images.all()]
-        return data
-
 
 class PortfolioImage(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):
     class Meta:
@@ -70,10 +66,6 @@ class ServicePackage(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel)
 
     def __str__(self):
         return self.name
-
-    def _to_dict_pre_finish_hook(self, data):
-        data['services'] = [f.to_dict() for f in self.services.all()]
-        return data
 
 
 class Service(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):

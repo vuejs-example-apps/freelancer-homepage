@@ -115,7 +115,6 @@ class ToDictMixin:
                     continue
             # handling images and other files
             if type(f) == FileBrowseField:
-                # TODO: versions
                 file = f.value_from_object(self)
                 if file:
                     data[f.name] = {
@@ -131,7 +130,10 @@ class ToDictMixin:
         for k in [k for k in data.keys() if data[k] == {}]:
             del data[k]
 
-        # TODO: serialize foreign keys as well
+        related_fields = [f for f in opts.get_all_related_objects() if f.is_relation and f.multiple]
+        for rf in related_fields:
+            data[rf.name] = [i.to_dict() for i in getattr(self, rf.name).enabled()]
+
         if hasattr(self, '_to_dict_pre_finish_hook'):
             return self._to_dict_pre_finish_hook(data)
 

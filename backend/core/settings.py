@@ -25,7 +25,7 @@ INSTALLED_APPS = (
     'ordered_model',
     'solo',
 
-    'freelancer-homepage',
+    'freelancer_homepage',
 )
 
 MIDDLEWARE_CLASSES = (

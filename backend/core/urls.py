@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^admin/grappelli/', include('grappelli.urls')),
     url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('freelancer-homepage.urls')),
+    url(r'^', include('freelancer_homepage.urls')),
     # url(r'^$', RedirectView.as_view(url='/admin/', permanent=False), name='home')
 ]
 
