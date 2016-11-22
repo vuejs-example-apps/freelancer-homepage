@@ -1,11 +1,11 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _, ugettext as __
-from core.shared.models import IsEnabledModel, TimestampsModel, OrderedModel
+from core.shared.models import IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel
 from filebrowser.fields import FileBrowseField
 from solo.models import SingletonModel
 
 
-class CustomerReview(IsEnabledModel, TimestampsModel, OrderedModel):
+class CustomerReview(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):
     class Meta:
         verbose_name = _('customer review')
         verbose_name_plural = _('customer reviews')
@@ -21,28 +21,8 @@ class CustomerReview(IsEnabledModel, TimestampsModel, OrderedModel):
     def __str__(self):
         return self.customer_name
 
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            # TODO: check field type instead of hard-coding names
-            if f.name == 'tel' or f.name == 'email' or f.name == 'hyperlink':
-                continue
-            if f.name == 'avatar':
-                file  = f.value_from_object(self)
-                if file:
-                    data[f.name] = file.url
-            else:
-                data[f.name] = f.value_from_object(self)
-        data['contacts'] = {
-            'tel': self.tel,
-            'email': self.email,
-            'hyperlink': self.hyperlink
-        }
-        return data
 
-
-class PortfolioWork(IsEnabledModel, TimestampsModel, OrderedModel):
+class PortfolioWork(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):
     class Meta:
         verbose_name = _('portfolio work')
         verbose_name_plural = _('portfolio works')
@@ -55,22 +35,12 @@ class PortfolioWork(IsEnabledModel, TimestampsModel, OrderedModel):
     def __str__(self):
         return self.name
 
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            # TODO: check field type instead of hard-coding names
-            if f.name == 'cover_image':
-                file  = f.value_from_object(self)
-                if file:
-                    data[f.name] = file.url
-            else:
-                data[f.name] = f.value_from_object(self)
+    def _to_dict_pre_finish_hook(self, data):
         data['images'] = [i.to_dict() for i in self.images.all()]
         return data
 
 
-class PortfolioImage(IsEnabledModel, TimestampsModel, OrderedModel):
+class PortfolioImage(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):
     class Meta:
         verbose_name = _('portfolio image')
         verbose_name_plural = _('portfolio images')
@@ -83,21 +53,8 @@ class PortfolioImage(IsEnabledModel, TimestampsModel, OrderedModel):
     def __str__(self):
         return self.title
 
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            # TODO: check field type instead of hard-coding names
-            if f.name == 'image':
-                file  = f.value_from_object(self)
-                if file:
-                    data[f.name] = file.url
-            else:
-                data[f.name] = f.value_from_object(self)
-        return data
 
-
-class ServicePackage(IsEnabledModel, TimestampsModel, OrderedModel):
+class ServicePackage(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):
     class Meta:
         verbose_name = _('service package')
         verbose_name_plural = _('service packages')
@@ -114,24 +71,12 @@ class ServicePackage(IsEnabledModel, TimestampsModel, OrderedModel):
     def __str__(self):
         return self.name
 
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            if f.name.startswith('price_'):
-                continue
-            data[f.name] = f.value_from_object(self)
-        data['price'] = {
-            'base': self.price_base,
-            'discount': self.price_discount,
-            'currency': self.price_currency,
-            'unit': self.price_unit
-        }
+    def _to_dict_pre_finish_hook(self, data):
         data['services'] = [f.to_dict() for f in self.services.all()]
         return data
 
 
-class Service(IsEnabledModel, TimestampsModel, OrderedModel):
+class Service(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):
     class Meta:
         verbose_name = _('service')
         verbose_name_plural = _('services')
@@ -143,15 +88,8 @@ class Service(IsEnabledModel, TimestampsModel, OrderedModel):
     def __str__(self):
         return self.name
 
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            data[f.name] = f.value_from_object(self)
-        return data
 
-
-class AdditionalService(IsEnabledModel, TimestampsModel, OrderedModel):
+class AdditionalService(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):
     class Meta:
         verbose_name = _('additional service')
         verbose_name_plural = _('additional services')
@@ -168,23 +106,8 @@ class AdditionalService(IsEnabledModel, TimestampsModel, OrderedModel):
     def __str__(self):
         return self.name
 
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            if f.name.startswith('price_'):
-                continue
-            data[f.name] = f.value_from_object(self)
-        data['price'] = {
-            'base': self.price_base,
-            'discount': self.price_discount,
-            'currency': self.price_currency,
-            'unit': self.price_unit
-        }
-        return data
 
-
-class WorkStage(IsEnabledModel, TimestampsModel, OrderedModel):
+class WorkStage(IsEnabledModel, TimestampsModel, OrderedModel, ToDictModel):
     class Meta:
         verbose_name = _('work stage')
         verbose_name_plural = _('work stages')
@@ -196,15 +119,8 @@ class WorkStage(IsEnabledModel, TimestampsModel, OrderedModel):
     def __str__(self):
         return self.name
 
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            data[f.name] = f.value_from_object(self)
-        return data
 
-
-class ServicesPageTexts(SingletonModel):
+class ServicesPageTexts(SingletonModel, ToDictModel):
     
     packages_global_note = models.TextField(_('text'), default='And it will be gone too.')
 
@@ -213,15 +129,6 @@ class ServicesPageTexts(SingletonModel):
 
     class Meta:
         verbose_name = _("services page texts")
-
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            if f.name == 'id':
-                continue
-            data[f.name] = f.value_from_object(self)
-        return data
 
         
 class Contacts(SingletonModel):
@@ -247,7 +154,7 @@ class Contacts(SingletonModel):
         return data
 
 
-class AboutMe(SingletonModel):
+class AboutMe(SingletonModel, ToDictModel):
     image = FileBrowseField(_('image'), extensions=['.jpg', '.png', '.jpeg'], max_length=500)
     text = models.TextField(_('text'), default='Lorem ipsum, ladies and gentlemen!')
 
@@ -257,18 +164,3 @@ class AboutMe(SingletonModel):
 
     class Meta:
         verbose_name = _("about me")
-
-    def to_dict(self):
-        opts = self._meta
-        data = {}
-        for f in opts.concrete_fields:
-            if f.name == 'id':
-                continue
-            # TODO: check field type instead of hard-coding names
-            if f.name == 'image':
-                file  = f.value_from_object(self)
-                if file:
-                    data[f.name] = file.url
-            else:
-                data[f.name] = f.value_from_object(self)
-        return data
