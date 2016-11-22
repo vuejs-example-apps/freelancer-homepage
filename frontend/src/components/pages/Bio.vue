@@ -1,7 +1,7 @@
 <template>
   <main>
     <h2>{{ bio.title }}</h2>
-    <img :src="bio.image">
+    <img :src="bio.image['300x300']">
     <p>{{ bio.text }}</p>    
   </main>
 </template>
