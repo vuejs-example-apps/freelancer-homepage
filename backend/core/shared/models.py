@@ -115,13 +115,15 @@ class ToDictMixin:
                     continue
             # handling images and other files
             if type(f) == FileBrowseField:
-                file = f.value_from_object(self)
-                if file:
-                    data[f.name] = {
-                        'original': file.url
-                    }
-                    for version in FILEBROWSER_VERSIONS:
-                        data[f.name][version] = file.version_generate(version).url
+                data[f.name] = {}
+                try:
+                    file = f.value_from_object(self)
+                    if file:
+                        data[f.name]['original'] = file.url
+                        for version in FILEBROWSER_VERSIONS:
+                            data[f.name][version] = file.version_generate(version).url
+                except FileNotFoundError:
+                    data[f.name]['error'] = 'file not found'
             # handling default case
             else:
                 data[f.name] = f.value_from_object(self)
