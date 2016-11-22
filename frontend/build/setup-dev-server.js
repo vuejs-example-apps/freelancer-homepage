@@ -5,6 +5,15 @@ const clientConfig = require('./webpack.client.config')
 const serverConfig = require('./webpack.server.config')
 
 module.exports = function setupDevServer (app, onUpdate) {
+  // setup redirects for images and other media provided by the backend
+  app.use(function redirectMedia(req, res, next) {
+    if (req.originalUrl.startsWith('/media/')) {
+      return res.redirect(301, 'http://localhost:8000' + req.originalUrl);
+    }
+    return next();
+  });
+
+
   // setup on the fly compilation + hot-reload
   clientConfig.entry.app = ['webpack-hot-middleware/client', clientConfig.entry.app]
   clientConfig.plugins.push(
