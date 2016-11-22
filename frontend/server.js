@@ -26,7 +26,7 @@ const html = (() => {
 })()
 
 // setup the server renderer, depending on dev/prod environment
-let renderer
+var renderer
 if (isProd) {
   // create server renderer from real fs
   const bundlePath = resolve('./dist/server-bundle.js')
@@ -57,7 +57,7 @@ app.get('*', (req, res) => {
   var s = Date.now()
   const context = { url: req.url }
   const renderStream = renderer.renderToStream(context)
-  let firstChunk = true
+  var firstChunk = true
 
   res.write(html.head)
 
