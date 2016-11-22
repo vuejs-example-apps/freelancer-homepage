@@ -155,6 +155,7 @@ class Contacts(SingletonModel):
 
 
 class AboutMe(SingletonModel, ToDictModel):
+    title = models.CharField(_('title'), max_length=255, default='Welcome!')
     image = FileBrowseField(_('image'), extensions=['.jpg', '.png', '.jpeg'], max_length=500)
     text = models.TextField(_('text'), default='Lorem ipsum, ladies and gentlemen!')
 
