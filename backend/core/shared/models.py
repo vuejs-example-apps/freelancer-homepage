@@ -2,6 +2,7 @@ from django.db import models
 from ordered_model.models import OrderedModel
 from filebrowser.fields import FileBrowseField
 from django.utils.translation import ugettext_lazy as _
+from filebrowser.settings import VERSIONS as FILEBROWSER_VERSIONS
 
 
 class EnabledDisabledManager(models.Manager):
@@ -74,7 +75,7 @@ class NameSlugTimestampsModel(TimestampsModel, NameSlugModel):
 
 
 class ToDictMixin:
-    
+
     def _get_grouping_prefix(self, field_name):
         if not self.TO_DICT_GROUPING_PREFIXES:
             return None
@@ -91,15 +92,15 @@ class ToDictMixin:
             for prefix in self.TO_DICT_GROUPING:
                 data[prefix] = {}
 
-        # initializing prefixed field grouping        
+        # initializing prefixed field grouping
         if self.TO_DICT_GROUPING_PREFIXES:
-            for prefix in self.TO_DICT_GROUPING_PREFIXES:                
+            for prefix in self.TO_DICT_GROUPING_PREFIXES:
                 data[prefix.replace('_', '')] = {}
 
         for f in opts.concrete_fields:
             # skipping explicitly specified fields
             if self.TO_DICT_SKIP_FIELDS:
-                if f.name in self.TO_DICT_SKIP_FIELDS:                  
+                if f.name in self.TO_DICT_SKIP_FIELDS:
                     continue
             # handling prefixed fields grouping
             if self.TO_DICT_GROUPING_PREFIXES:
@@ -117,15 +118,19 @@ class ToDictMixin:
                 # TODO: versions
                 file = f.value_from_object(self)
                 if file:
-                    data[f.name] = file.url
+                    data[f.name] = {
+                        'original': file.url
+                    }
+                    for version in FILEBROWSER_VERSIONS:
+                        data[f.name][version] = file.version_generate(version).url
             # handling default case
             else:
-                data[f.name] = f.value_from_object(self)        
+                data[f.name] = f.value_from_object(self)
 
         # cleanup unused grouping
         for k in [k for k in data.keys() if data[k] == {}]:
             del data[k]
-        
+
         # TODO: serialize foreign keys as well
         if hasattr(self, '_to_dict_pre_finish_hook'):
             return self._to_dict_pre_finish_hook(data)
@@ -139,4 +144,4 @@ class ToDictModel(ToDictMixin):
     TO_DICT_GROUPING = {
         'contacts': ('tel', 'email', 'hyperlink')
     }
-    TO_DICT_GROUPING_PREFIXES = ('price_',)    
+    TO_DICT_GROUPING_PREFIXES = ('price_',)
