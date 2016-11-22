@@ -76,13 +76,6 @@ class NameSlugTimestampsModel(TimestampsModel, NameSlugModel):
 
 class ToDictMixin:
 
-    def _get_grouping_prefix(self, field_name):
-        if not self.TO_DICT_GROUPING_PREFIXES:
-            return None
-        for group_prefix in self.TO_DICT_GROUPING_PREFIXES:
-            if field_name.startswith(group_prefix):
-                return group_prefix.replace('_', '')
-
     def to_dict(self):
         opts = self._meta
         data = {}
@@ -128,18 +121,33 @@ class ToDictMixin:
             else:
                 data[f.name] = f.value_from_object(self)
 
-        # cleanup unused grouping
+        # cleanup for unused grouping
         for k in [k for k in data.keys() if data[k] == {}]:
             del data[k]
 
-        related_fields = [f for f in opts.get_all_related_objects() if f.is_relation and f.multiple]
-        for rf in related_fields:
-            data[rf.name] = [i.to_dict() for i in getattr(self, rf.name).enabled()]
+        # the mixin allows to redifine the related fields strategy
+        if hasattr(self, '_to_dict_related_fields_strategy'):
+            self._to_dict_related_fields_strategy(opts, data)
+        else:
+            self._default_related_fields_strategy(opts, data)
 
+        # calling pre_finish_hook if exists
         if hasattr(self, '_to_dict_pre_finish_hook'):
-            return self._to_dict_pre_finish_hook(data)
+            self._to_dict_pre_finish_hook(data)
 
         return data
+
+    def _default_related_fields_strategy(self, opts, data):
+        related_fields = [f for f in opts.get_all_related_objects() if f.is_relation and f.multiple]
+        for rf in related_fields:
+            data[rf.name] = [i.to_dict() for i in getattr(self, rf.name).all()]
+
+    def _get_grouping_prefix(self, field_name):
+        if not self.TO_DICT_GROUPING_PREFIXES:
+            return None
+        for group_prefix in self.TO_DICT_GROUPING_PREFIXES:
+            if field_name.startswith(group_prefix):
+                return group_prefix.replace('_', '')
 
 
 # TODO: maybe extract to global settings, but still allow local in-class setting rewriting
@@ -149,3 +157,8 @@ class ToDictModel(ToDictMixin):
         'contacts': ('tel', 'email', 'hyperlink')
     }
     TO_DICT_GROUPING_PREFIXES = ('price_',)
+
+    def _default_related_fields_strategy(self, opts, data):
+        related_fields = [f for f in opts.get_all_related_objects() if f.is_relation and f.multiple]
+        for rf in related_fields:
+            data[rf.name] = [i.to_dict() for i in getattr(self, rf.name).enabled()]
