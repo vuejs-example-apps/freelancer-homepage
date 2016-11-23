@@ -2,12 +2,8 @@
 
 A work-in-progress by @gbezyuk.
 
-At this step we implement the frontend app with WebPack, using vue-hackernews-2.0 configuration as a reference.
-At the same time we provide backend/API/admin application built with Django.
+The repo contains both the frontend app (based on vue-hackernews-2.0), and the backend/API/admin app built with Django.
+Currently backend API provides just a single snapshot, which is prefetched during SSR,
+with no additional requests performing on the client side. Hovewer, the architecture implements a fully-functional Vuex.
 
-Currently backend API provides just a single snapshot, being prefetched during SSR,
-and there are no additional requests performing on the client side. 
-
-For a frontend-only version see older repository tags.
-
-For a static version see older repository tags.
+See repository tags / releases for example history.
